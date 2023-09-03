@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class ChoicesStorage : MonoBehaviour
 {
-    private List<string> ChosenActions;
-    private List<string> Toggled;
-    private bool userDecided;
+    private List<string> ChosenActions; // actions chosen by the player
+    private List<string> Toggled; // moods toggled on
+
+    private bool userDecided; // check if player already decided on how to interact
 
     void Start()
     {
@@ -17,14 +18,21 @@ public class ChoicesStorage : MonoBehaviour
 
     void Update()
     {
+        // remove first row of //
         // if (userDecided){
         //     // insert code for dialogue, emote, etc.
 
         //     // user will choose again
         //     userDecided = false;
+
+        //     // clear lists containing actions chosen, and the moods toggled
+        //     ChosenActions.Clear();
+        //     Toggled.Clear();
         // }
     }
 
+    // methods used in other files
+    
     public void AddChoice(string choice)
     {
         if (!userDecided)
@@ -47,6 +55,10 @@ public class ChoicesStorage : MonoBehaviour
     {
         if (!userDecided)
             Toggled.Remove(toggle);
+    }
+
+    public bool ToggledButtonsInclude(string toggle){
+        return Toggled.Contains(toggle);
     }
 
     public void UserAlreadyDecided()
