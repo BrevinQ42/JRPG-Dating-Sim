@@ -7558,17 +7558,17 @@ MonoBehaviour:
   - {fileID: 813637290}
   - {fileID: 1966333653}
   SoloSubMenus:
+  - {fileID: 173529262}
+  - {fileID: 549516123}
+  - {fileID: 870877638}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 978651469}
   OtherSubMenus:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1652917890}
+  - {fileID: 59783407}
+  - {fileID: 1071855897}
+  - {fileID: 1771741188}
   - {fileID: 0}
   - {fileID: 0}
 --- !u!1 &1337868415
