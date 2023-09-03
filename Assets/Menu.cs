@@ -12,6 +12,8 @@ public class Menu : MonoBehaviour
     private bool resizing; // if true, the submenu to be open is opening
     private float time; // time spent in opening the submenu
 
+    public InteractMenu interactMenu;
+
     void Start()
     {
         if (this.gameObject.name.Equals("Menu")){
@@ -46,6 +48,10 @@ public class Menu : MonoBehaviour
 
             // remove the last choice that opened the submenu from the storage
             Storage.RemoveLastChoice();
+
+            if(interactMenu.subMenu != null){
+                interactMenu.ResetMenu();
+            }
         }
 
         // add the choice to the storage
@@ -137,7 +143,7 @@ public class Menu : MonoBehaviour
         Storage.UserAlreadyDecided();
     }
 
-    void ResetMenu()
+    protected void ResetMenu()
     {
         if(subMenu != null){
             subMenu.transform.Translate(-64, 50 * subMenu.transform.childCount / 4, 0.0f);

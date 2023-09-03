@@ -703,6 +703,7 @@ MonoBehaviour:
   - {fileID: 2086601542}
   Storage: {fileID: 638454009}
   SubMenus: []
+  interactMenu: {fileID: 0}
 --- !u!114 &59783408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1395,6 +1396,7 @@ MonoBehaviour:
   - {fileID: 143380303}
   Storage: {fileID: 638454009}
   SubMenus: []
+  interactMenu: {fileID: 0}
 --- !u!114 &173529263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2172,6 +2174,7 @@ MonoBehaviour:
   - {fileID: 588312138}
   Storage: {fileID: 638454009}
   SubMenus: []
+  interactMenu: {fileID: 0}
 --- !u!1 &246356335
 GameObject:
   m_ObjectHideFlags: 0
@@ -3502,6 +3505,7 @@ MonoBehaviour:
   - {fileID: 1816043200}
   Storage: {fileID: 638454009}
   SubMenus: []
+  interactMenu: {fileID: 0}
 --- !u!114 &549516124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3961,6 +3965,7 @@ MonoBehaviour:
   - {fileID: 1323723581}
   - {fileID: 812773214}
   - {fileID: 244066839}
+  interactMenu: {fileID: 1323723585}
 --- !u!1 &621687224
 GameObject:
   m_ObjectHideFlags: 0
@@ -5134,6 +5139,7 @@ MonoBehaviour:
   - {fileID: 561475377}
   Storage: {fileID: 638454009}
   SubMenus: []
+  interactMenu: {fileID: 0}
 --- !u!114 &870877639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5681,6 +5687,7 @@ MonoBehaviour:
   - {fileID: 1943287759}
   Storage: {fileID: 638454009}
   SubMenus: []
+  interactMenu: {fileID: 0}
 --- !u!114 &978651470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6020,6 +6027,7 @@ MonoBehaviour:
   - {fileID: 1758872961}
   Storage: {fileID: 638454009}
   SubMenus: []
+  interactMenu: {fileID: 0}
 --- !u!114 &1071855898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7552,6 +7560,7 @@ MonoBehaviour:
   Choices: []
   Storage: {fileID: 638454009}
   SubMenus: []
+  interactMenu: {fileID: 0}
   Actions: {fileID: 1457262246}
   BaseActions:
   - {fileID: 1115565784}
@@ -9541,6 +9550,7 @@ MonoBehaviour:
   - {fileID: 1280707592}
   Storage: {fileID: 638454009}
   SubMenus: []
+  interactMenu: {fileID: 0}
 --- !u!114 &1652917891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10390,6 +10400,7 @@ MonoBehaviour:
   - {fileID: 2061703495}
   Storage: {fileID: 638454009}
   SubMenus: []
+  interactMenu: {fileID: 0}
 --- !u!114 &1771741189
 MonoBehaviour:
   m_ObjectHideFlags: 0
