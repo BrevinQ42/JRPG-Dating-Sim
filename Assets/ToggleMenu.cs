@@ -22,9 +22,9 @@ public class ToggleMenu : MonoBehaviour
             Button toggle = child.GetComponent<Button>();
 
             // adding the toggles to their corresponding toggle groups
-            if (toggle.name.Equals("Flirty") || toggle.name.Equals("Funny") || toggle.name.Equals("Weird")){
+            if (toggle.name.Equals("Romantic") || toggle.name.Equals("Funny") || toggle.name.Equals("Friendly")){
                 toggleGroup1.Add(toggle);
-            } else if (toggle.name.Equals("Friendly") || toggle.name.Equals("Sad")){
+            } else if (toggle.name.Equals("Weird") || toggle.name.Equals("Sad")){
                 toggleGroup2.Add(toggle);
             } else if (toggle.name.Equals("Mean")){
                 toggleGroup3.Add(toggle);
