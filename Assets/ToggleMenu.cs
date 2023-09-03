@@ -69,6 +69,9 @@ public class ToggleMenu : MonoBehaviour
         } else {
             // toggle button off
 
+            // remove toggle from storage
+            Storage.RemoveToggle(toggle.name);
+
             // change toggle color to white
             toggle.GetComponent<Image>().color = Color.white;
 
@@ -94,9 +97,6 @@ public class ToggleMenu : MonoBehaviour
                     t.interactable = true;
                 }
             }
-
-            // remove toggle from storage
-            Storage.RemoveToggle(toggle.name);
         }
     }
 }

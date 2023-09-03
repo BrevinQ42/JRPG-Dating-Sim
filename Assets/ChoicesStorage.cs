@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChoicesStorage : MonoBehaviour
 {
-    private List<string> ChosenActions; // actions chosen by the player
+    public List<string> ChosenActions; // actions chosen by the player
     private List<string> Toggled; // moods toggled on
 
     private bool userDecided; // check if player already decided on how to interact
