@@ -38,41 +38,37 @@ public class Menu : MonoBehaviour
         }
     }
 
-    void OpenSubMenu(int choiceIndex)
+    protected void OpenSubMenu(int choiceIndex)
     {
         // if there is a submenu that was opened, close it immediately
         if (subMenu != null){
-            subMenu.transform.Translate(-64, 50 * subMenu.transform.childCount / 4, 0.0f);
-            subMenu.transform.localScale += -subMenu.transform.localScale;
-            subMenu.transform.localScale += new Vector3(0.001f, 0.001f, 0.0f);
-
-            // change the choice's color back to white
-            ColorBlock prevCB = Choices[SubMenus.IndexOf(subMenu)].colors;
-            prevCB.normalColor = Color.white;
-            Choices[SubMenus.IndexOf(subMenu)].colors = prevCB;
+            ResetMenu();
 
             // remove the last choice that opened the submenu from the storage
             Storage.RemoveLastChoice();
         }
 
-        // change the choice's color to red (to indicate that it was chosen)
-        ColorBlock newCB = Choices[choiceIndex].colors;
-        newCB.normalColor = Color.red;
-        Choices[choiceIndex].colors = newCB;
-
         // add the choice to the storage
         Storage.AddChoice(Choices[choiceIndex].name);
 
         subMenu = SubMenus[choiceIndex];
-        ConfigureMenu(subMenu);
 
-        // initiate resizing to be done in 0.25 sec
-        time = 0.25f;
-        resizing = true;
+        if(subMenu != null){
+            // change the choice's color to red (to indicate that it was chosen)
+            ColorBlock newCB = Choices[choiceIndex].colors;
+            newCB.normalColor = Color.red;
+            Choices[choiceIndex].colors = newCB;
+
+            ConfigureMenu(subMenu);
+    
+            // initiate resizing to be done in 0.25 sec
+            time = 0.25f;
+            resizing = true;
+        }
     }
 
     // configure menu's position and size, as well as the choices' positions
-    void ConfigureMenu(GameObject Menu)
+    protected void ConfigureMenu(GameObject Menu)
     {
         int spacePerButton = 25; // space allotted for each button
 
@@ -86,6 +82,14 @@ public class Menu : MonoBehaviour
             rt.SetLocalPositionAndRotation(this.gameObject.transform.localPosition + new Vector3(128/2 + 10,
                                         ((1.5f - SubMenus.IndexOf(Menu)) * spacePerButton), 0.0f),
                                         new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+        }
+
+        if (Choices.Count == 1){
+            rt.position += new Vector3(0.0f, -1 * spacePerButton, 0.0f);
+        } else if (Choices.Count == 4){            
+            rt.position += new Vector3(0.0f, 0.5f * spacePerButton, 0.0f);
+        } else if (Choices.Count == 6){            
+            rt.position += new Vector3(0.0f, 1.5f * spacePerButton, 0.0f);
         }
 
         // set the size of the menu (width = 128, height = based on number of choices + allowance of 10)
@@ -102,7 +106,7 @@ public class Menu : MonoBehaviour
 
             count += 1;
         }
-    }
+}
 
     void Update()
     {
@@ -117,14 +121,35 @@ public class Menu : MonoBehaviour
                 resizing = false;
             }
         }
+
+        if (Storage.ChosenActionsCount() == 0)
+        {
+            ResetMenu();
+        }
     }
 
-    void TriggerEvent(string choiceName)
+    protected void TriggerEvent(string choiceName)
     {
         // add choice to storage
         Storage.AddChoice(choiceName);
 
         // tell storage that the player already finished choosing
         Storage.UserAlreadyDecided();
+    }
+
+    void ResetMenu()
+    {
+        if(subMenu != null){
+            subMenu.transform.Translate(-64, 50 * subMenu.transform.childCount / 4, 0.0f);
+            subMenu.transform.localScale += -subMenu.transform.localScale;
+            subMenu.transform.localScale += new Vector3(0.001f, 0.001f, 0.0f);
+
+            // change the choice's color back to white
+            ColorBlock prevCB = Choices[SubMenus.IndexOf(subMenu)].colors;
+            prevCB.normalColor = Color.white;
+            Choices[SubMenus.IndexOf(subMenu)].colors = prevCB;
+
+            subMenu = null;
+        }
     }
 }

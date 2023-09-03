@@ -9,6 +9,8 @@ public class ChoicesStorage : MonoBehaviour
 
     private bool userDecided; // check if player already decided on how to interact
 
+    public InteractMenu interactMenu;
+
     void Start()
     {
         ChosenActions = new List<string>();
@@ -18,17 +20,15 @@ public class ChoicesStorage : MonoBehaviour
 
     void Update()
     {
-        // remove first row of //
-        // if (userDecided){
-        //     // insert code for dialogue, emote, etc.
+        if (userDecided){
+            // insert code for dialogue, emote, etc.
 
-        //     // user will choose again
-        //     userDecided = false;
+            // user will choose again
+            userDecided = false;
 
-        //     // clear lists containing actions chosen, and the moods toggled
-        //     ChosenActions.Clear();
-        //     Toggled.Clear();
-        // }
+            // clear lists containing actions chosen
+            ChosenActions.Clear();
+        }
     }
 
     // methods used in other files
@@ -45,16 +45,25 @@ public class ChoicesStorage : MonoBehaviour
             ChosenActions.RemoveAt(ChosenActions.Count - 1);
     }
 
+    public int ChosenActionsCount()
+    {
+        return ChosenActions.Count;
+    }
+
     public void AddToggle(string toggle)
     {
-        if (!userDecided)
+        if (!userDecided){
+            interactMenu.AddAction(toggle);
             Toggled.Add(toggle);
+        }
     }
 
     public void RemoveToggle(string toggle)
     {
-        if (!userDecided)
+        if (!userDecided){
+            interactMenu.RemoveAction(toggle);
             Toggled.Remove(toggle);
+        }
     }
 
     public bool ToggledButtonsInclude(string toggle){
